@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="px-5 lg:flex lg:gap-20 lg:justify-center h-screen lg:items-center bg-[#F0F2F5]">
-      <div className="flex flex-col gap-5 text-center items-center lg:max-w-md lg:text-start">
+      <div className="flex flex-col gap-5 text-center items-center lg:max-w-md lg:text-start lg:items-start">
         <div className="h-32 ">
           <Image
             src={FacebookLogo}
@@ -39,34 +39,42 @@ export default function Home() {
       </div>
 
       <div>
-        <div className="mt-10 rounded-lg shadow-custom-dark py-5 px-4 flex flex-col gap-5 bg-white">
-          <Input
-            type="email"
-            placeholder="Email address or phone number"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            className="rounded-md focus-visible:ring-2 focus-visible:ring-sky-500  focus:ring-2 focus:ring-sky-100 lg:w-96"
-          />
-          <Input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            className="rounded-md focus-visible:ring-2 focus-visible:ring-sky-500  focus:ring-2 focus:ring-sky-100 lg:w-96"
-          />
-          <div className="text-center">
-            <Button
-              onClick={handleClick}
-              className="bg-[#0866ff] text-xl font-semibold w-full"
-            >
-              Log in
-            </Button>
-            <Button className="text-[#0866ff] text-base mt-3 bg-transparent hover:bg-transparent font-normal ">
-              Forgotten password?
-            </Button>
-          </div>
+        <div className="mt-10 rounded-lg shadow-custom-dark py-5 px-4 flex flex-col gap-5  bg-white">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleClick();
+            }}
+            className="flex flex-col gap-5 "
+          >
+            <Input
+              type="email"
+              placeholder="Email address or phone number"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              className="rounded-md focus-visible:ring-2 focus-visible:ring-sky-500  focus:ring-2 focus:ring-sky-100 lg:w-96"
+            />
+            <Input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              className="rounded-md focus-visible:ring-2 focus-visible:ring-sky-500  focus:ring-2 focus:ring-sky-100 lg:w-96"
+            />
+            <div className="text-center">
+              <Button
+                type="submit"
+                className="bg-[#0866ff] text-xl font-semibold w-full"
+              >
+                Log in
+              </Button>
+              <Button className="text-[#0866ff] text-base mt-3 bg-transparent hover:bg-transparent font-normal ">
+                Forgotten password?
+              </Button>
+            </div>
+          </form>
           <span className="border border-b bg-[#1c1e21]"></span>
-          <Button className="bg-[#42b72a] font-semibold text-base">
+          <Button className="bg-[#42b72a] font-semibold text-base w-fit m-auto">
             Create new account
           </Button>
         </div>
